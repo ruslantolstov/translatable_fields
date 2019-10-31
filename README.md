@@ -53,6 +53,9 @@ Allergy.first.description
 => "There are different types of allergic reactions to foods"
 ```
 
+## Thanks
+Implemented based on ideas @GalenkoEugene @AlexTua thanks, guys.
+
 ## Contributing
 
 1. Fork it ( link )
