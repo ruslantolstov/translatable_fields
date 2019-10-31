@@ -1,0 +1,25 @@
+version: 2
+jobs:
+  build:
+    docker:
+      - image: circleci/ruby:2.6.3-node-browsers
+
+    steps:
+      - checkout
+      - restore_cache:
+          keys:
+            - translatable_fields-{{ checksum "Gemfile.lock" }}
+            - translatable_fields-
+
+      - run:
+          name: install dependencies
+          command: bundle check || bundle install
+
+      - save_cache:
+          paths:
+            - ./vendor/bundle
+          key: translatable_fields-{{ checksum "Gemfile.lock" }}
+
+      - run:
+          name: run tests
+          command: bundle exec rspec
