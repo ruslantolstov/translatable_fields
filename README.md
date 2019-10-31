@@ -1,5 +1,7 @@
 # TranslatableFields
 
+[![CircleCI](https://circleci.com/gh/ruslantolstov/translatable_fields.svg?style=svg)](https://circleci.com/gh/ruslantolstov/translatable_fields)
+
 Translate your fields in ActiveRecord.
 
 Rails concern allow you to translate your models' attribute values with prefixes like `en_title` or `title_en`
