@@ -1,7 +1,8 @@
 # TranslatableFields
 
 Translate your fields in ActiveRecord.
-Rails library allow you to translate your models' attribute values with prefixes like `en_title` or `title_en`
+
+Rails concern allow you to translate your models' attribute values with prefixes like `en_title` or `title_en`
 
 ## Requirements
 
@@ -29,16 +30,16 @@ Or install it yourself as:
 ```diff
 # config/initializers/translatable_fields.rb
 TranslatableFields.configure do |config|
-  # Set up your mode - (:prefix_at_the_beginning, :prefix_in_the_end) :aws by prefix_at_the_beginning
-  #
+# Set up your mode:
+# :prefix_at_the_beginning (default) - for fields like en_title, ar_title
+# :prefix_in_the_end - for fields like title_en, title_ar
+#
 + config.mode = :prefix_at_the_beginning
 end
 ```
 
-## Set up
+## Usage example
 ```diff
-# frozen_string_literal: true
-
 class Allergy < ApplicationRecord
 +  include TranslatableFields::Concern
 
@@ -46,7 +47,7 @@ class Allergy < ApplicationRecord
 end
 ```
 
-```bash
+```ruby
 Allergy.first.title
 => "Food Allergy"
 Allergy.first.description
@@ -54,7 +55,7 @@ Allergy.first.description
 ```
 
 ## Thanks
-Implemented based on ideas @GalenkoEugene @AlexTua thanks, guys.
+Implemented based on ideas [@GalenkoEugene](https://github.com/GalenkoEugene), [@AlexTua](https://github.com/AlexTua) thanks, guys.
 
 ## Contributing
 

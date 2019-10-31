@@ -8,8 +8,8 @@ Gem::Specification.new do |spec|
   spec.authors       = ["Yevhenii Halenko", "Oleksii Tokarchuk", "Ruslan Tolstov"]
   spec.email         = ["ruslan.tolstov.ua@gmail.com"]
 
-  spec.summary       = "Translate your fields in ActiveRecord."
-  spec.description   = "translatable_fields"
+  spec.summary       = "Translate your fields in ActiveRecord. Rails library allow you to translate your models' attribute values with prefixes like `en_title` or `title_en`"
+  spec.description   = "Translate your fields in ActiveRecord."
   spec.homepage      = "https://github.com/ruslantolstov/translatable_fields"
   spec.license       = "MIT"
 
