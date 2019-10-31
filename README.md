@@ -1,9 +1,12 @@
 # TranslatableFields
 
-[![CircleCI](https://circleci.com/gh/ruslantolstov/translatable_fields.svg?style=svg)](https://circleci.com/gh/ruslantolstov/translatable_fields)
-
-
 Translate your fields in ActiveRecord.
+Rails library allow you to translate your models' attribute values with prefixes like `en_title` or `title_en`
+
+## Requirements
+
+* ActiveRecord
+* I18n
 
 ## Installation
 
@@ -30,6 +33,24 @@ TranslatableFields.configure do |config|
   #
 + config.mode = :prefix_at_the_beginning
 end
+```
+
+## Set up
+```diff
+# frozen_string_literal: true
+
+class Allergy < ApplicationRecord
++  include TranslatableFields::Concern
+
++  translatable_fields(:title, :description)
+end
+```
+
+```bash
+Allergy.first.title
+=> "Food Allergy"
+Allergy.first.description
+=> "There are different types of allergic reactions to foods"
 ```
 
 ## Contributing
